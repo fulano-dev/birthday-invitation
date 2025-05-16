@@ -16,8 +16,8 @@ const Wishes = ({ convidados = [] }) => {
   );
 
   const hoje = new Date();
-  const inicioConfirmacao = new Date("2025-06-15T00:00:00");
-  const fimConfirmacao = new Date("2025-07-30T23:59:59");
+  const inicioConfirmacao = new Date("2025-05-16T00:00:00");
+  const fimConfirmacao = new Date("2025-05-29T23:59:59");
   const dentroDoPrazo = hoje >= inicioConfirmacao && hoje <= fimConfirmacao;
   
   const CountdownTimer = ({ targetDate }) => {
@@ -104,7 +104,7 @@ const Wishes = ({ convidados = [] }) => {
 
       <section id="confirmar" className="max-w-3xl mx-auto mt-12 space-y-6">
         {hoje < inicioConfirmacao ? (
-          <div className="bg-[#0f3e57] text-[#F2B21C] font-['TexGyreTermes'] text-center p-6 rounded-xl shadow-lg">
+          <div className="bg-[#0f3e57] text-[#FFDE59] font-['BarbraHigh'] text-center p-6 rounded-xl shadow-lg">
             <h2 className="text-2xl font-semibold mb-2">Confirmação de Presença</h2>
             <p className="text-sm">
               A confirmação de presença estará disponível de <strong>{inicioConfirmacao.toLocaleDateString('pt-BR')}</strong> até <strong>{fimConfirmacao.toLocaleDateString('pt-BR')}</strong>.
@@ -116,12 +116,15 @@ const Wishes = ({ convidados = [] }) => {
           </div>
         ) : dentroDoPrazo ? (
           <>
-            <h2 className="text-3xl font-['Alex_Brush'] text-center text-[#F2B21C]">Confirmar Presença</h2>
-            <p className="text-sm text-center text-[#F2B21C] font-['TexGyreTermes']">
-              Por favor, confirme sua presença até 30/07/2025
+            <h2 className="text-3xl font-['BarbraHigh'] text-center text-[#FFDE59]">Confirmar Presença</h2>
+            <p className="text-sm text-center text-[#FFDE59] font-['TexGyreTermes']">
+              Por favor, confirme sua presença até 29/05/2025
             </p>
-            <p className="text-sm text-center text-[#F2B21C] font-['TexGyreTermes']">
+            <p className="text-sm text-center text-[#FFDE59] font-['TexGyreTermes']">
               Marque a presença de todos que irão comparecer e desmarque os que não poderão ir.
+            </p>
+            <p className="text-sm text-center text-[#FFDE59] font-['TexGyreTermes']">
+              O UPBeer cobra couvert artistico de R$ 5,00
             </p>
      
             {convidadosMock.some(c => c.status === 1 || c.status === 2) && (
@@ -130,7 +133,7 @@ const Wishes = ({ convidados = [] }) => {
               </div>
             )}
 
-            <form className="bg-[#F2B21C]/10 p-6 rounded-2xl border border-[#F2B21C]/50 shadow-lg space-y-4" onSubmit={(e) => {
+            <form className="bg-[#FFDE59]/10 p-6 rounded-2xl border border-[#FFDE59]/50 shadow-lg space-y-4" onSubmit={(e) => {
               e.preventDefault();
               const form = new FormData(e.target);
               const dados = convidadosMock.map((convidado, i) => {
@@ -159,8 +162,8 @@ const Wishes = ({ convidados = [] }) => {
               setShowModal(true);
             }}>
               {convidadosMock.map((convidado, index) => (
-                <div key={convidado.idConvidado} className="border border-[#F2B21C]/30 p-4 rounded-lg space-y-2 bg-white/5">
-                  <p className="text-[#F2B21C] font-semibold font-['TexGyreTermes']">{convidado.nome}</p>
+                <div key={convidado.idConvidado} className="border border-[#FFDE59]/30 p-4 rounded-lg space-y-2 bg-white/5">
+                  <p className="text-[#FFDE59] font-semibold font-['BarbraHigh']">{convidado.nome}</p>
                   <div className="flex items-center gap-2">
                     {convidado.status === 1 ? (
                       <>
@@ -181,7 +184,7 @@ const Wishes = ({ convidados = [] }) => {
                   </div>
                   
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-[#F2B21C] font-['TexGyreTermes']">Confirmar presença</span>
+                    <span className="text-sm text-[#FFDE59] font-['TexGyreTermes']">Confirmar presença</span>
                     <label className="relative inline-flex items-center cursor-pointer">
                     <input
                         type="checkbox"
@@ -197,22 +200,22 @@ const Wishes = ({ convidados = [] }) => {
                         }}
                         className="sr-only peer"
                       />
-                      <div className="w-11 h-6 bg-white/20 border border-[#F2B21C]/40 peer-focus:outline-none rounded-full peer peer-checked:bg-[#F2B21C] peer-checked:border-[#F2B21C] transition-all duration-300"></div>
+                      <div className="w-11 h-6 bg-white/20 border border-[#FFDE59]/40 peer-focus:outline-none rounded-full peer peer-checked:bg-[#FFDE59] peer-checked:border-[#FFDE59] transition-all duration-300"></div>
                       <div className="absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-all duration-300 peer-checked:translate-x-full"></div>
                     </label>
                   </div>
 
                   {convidado.crianca === true && (
                     <>
-                      <p className="text-sm italic text-[#F2B21C] font-['TexGyreTermes'] mt-2">O anfitrião marcou que este convidado é uma criança.</p>
+                      <p className="text-sm italic text-[#FFDE59] font-['TexGyreTermes'] mt-2">O anfitrião marcou que este convidado é uma criança.</p>
                       <div className="flex justify-between items-start mt-2">
-                        <label className="text-sm text-[#F2B21C] font-['TexGyreTermes'] mt-1">Idade da criança em 30/08/2025:</label>
+                        <label className="text-sm text-[#FFDE59] font-['TexGyreTermes'] mt-1">Idade da criança em 30/08/2025:</label>
                         <input
                           type="number"
                           name={`idade-${index}`}
                           defaultValue={convidado.status !== 0 && convidado.idade ? convidado.idade : ""}
                           required
-                          className="w-20 px-3 py-1.5 rounded-xl bg-white/10 border border-[#F2B21C]/50 text-[#F2B21C] placeholder-[#F2B21C]/60 font-['TexGyreTermes']"
+                          className="w-20 px-3 py-1.5 rounded-xl bg-white/10 border border-[#FFDE59]/50 text-[#FFDE59] placeholder-[#FFDE59]/60 font-['TexGyreTermes']"
                         />
                       </div>
                     </>
@@ -234,15 +237,15 @@ const Wishes = ({ convidados = [] }) => {
                 </div>
               ))}
 
-              <div className="space-y-4 pt-6 border-t border-[#F2B21C]/30">
+              <div className="space-y-4 pt-6 border-t border-[#FFDE59]/30">
                 <div>
-                  <label className="block text-sm text-[#F2B21C] font-['TexGyreTermes']">Seu e-mail</label>
+                  <label className="block text-sm text-[#FFDE59] font-['TexGyreTermes']">Seu e-mail</label>
                   <input
                     type="email"
                     name="email"
                     placeholder="Digite seu e-mail"
                     required
-                    className="w-full px-4 py-2 rounded-xl bg-white/10 border border-[#F2B21C]/50 text-[#F2B21C] placeholder-[#F2B21C]/60 font-['TexGyreTermes']"
+                    className="w-full px-4 py-2 rounded-xl bg-white/10 border border-[#FFDE59]/50 text-[#FFDE59] placeholder-[#FFDE59]/60 font-['TexGyreTermes']"
                   />
                 </div>
               </div>
@@ -250,7 +253,7 @@ const Wishes = ({ convidados = [] }) => {
               <div className="flex justify-end pt-4">
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-xl bg-[#F2B21C] hover:bg-[#bfa67e] text-black font-['TexGyreTermes']"
+                  className="px-6 py-2.5 rounded-xl bg-[#FFDE59] hover:bg-[#bfa67e] text-black font-['TexGyreTermes']"
                 >
                   {convidadosMock.some(c => c.status === 1 || c.status === 2) ? "Editar" : "Enviar confirmação"}
                 </button>
@@ -259,11 +262,11 @@ const Wishes = ({ convidados = [] }) => {
 
             {showModal && (
               <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-                <div className="bg-[#0f3e57] p-6 rounded-lg max-w-md w-full text-center space-y-4 text-[#F2B21C] font-['TexGyreTermes']">
+                <div className="bg-[#0f3e57] p-6 rounded-lg max-w-md w-full text-center space-y-4 text-[#FFDE59] font-['TexGyreTermes']">
                   <h3 className="text-xl font-semibold">
                     {convidadosMock.some(c => c.status === 1 || c.status === 2)
                       ? "Você está editando sua confirmação de presença:"
-                      : "Você está confirmando a presença na recepção de:"}
+                      : "Você está confirmando a presença de:"}
                   </h3>
                   <ul className="space-y-1 text-sm text-left">
                     {confirmados.map(p =>
@@ -280,7 +283,7 @@ const Wishes = ({ convidados = [] }) => {
                   </ul>
                   <div className="flex justify-center gap-4 pt-4">
                     <button
-                      className="px-4 py-2 bg-[#F2B21C] text-black rounded flex items-center justify-center gap-2"
+                      className="px-4 py-2 bg-[#FFDE59] text-black rounded flex items-center justify-center gap-2"
                       onClick={enviarConfirmacao}
                       disabled={carregando}
                     >
@@ -294,7 +297,7 @@ const Wishes = ({ convidados = [] }) => {
                       )}
                     </button>
                     <button
-                      className="px-4 py-2 border border-[#F2B21C] text-[#F2B21C] rounded"
+                      className="px-4 py-2 border border-[#FFDE59] text-[#FFDE59] rounded"
                       onClick={() => setShowModal(false)}
                     >
                       Editar
@@ -306,11 +309,11 @@ const Wishes = ({ convidados = [] }) => {
 
             {erroEnvio && (
               <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-                <div className="bg-[#0f3e57] p-6 rounded-lg max-w-md w-full text-center space-y-4 text-[#F2B21C] font-['TexGyreTermes']">
+                <div className="bg-[#0f3e57] p-6 rounded-lg max-w-md w-full text-center space-y-4 text-[#FFDE59] font-['TexGyreTermes']">
                   <h3 className="text-xl font-semibold text-red-500">Erro</h3>
-                  <p className="text-sm text-[#F2B21C]">{erroEnvio}</p>
+                  <p className="text-sm text-[#FFDE59]">{erroEnvio}</p>
                   <button
-                    className="px-4 py-2 border border-[#F2B21C] text-[#F2B21C] rounded"
+                    className="px-4 py-2 border border-[#FFDE59] text-[#FFDE59] rounded"
                     onClick={() => setErroEnvio("")}
                   >
                     Fechar
@@ -321,14 +324,14 @@ const Wishes = ({ convidados = [] }) => {
             
             {envioFinalizado && (
               <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-                <div className="bg-[#0f3e57] p-6 rounded-lg max-w-md w-full text-center space-y-4 text-[#F2B21C] font-['TexGyreTermes']">
+                <div className="bg-[#0f3e57] p-6 rounded-lg max-w-md w-full text-center space-y-4 text-[#FFDE59] font-['TexGyreTermes']">
                   <h3 className="text-xl font-semibold">Confirmação registrada!</h3>
                   <p className="text-sm">
                     Agradecemos por confirmar sua presença. Esperamos por você na formatura! 📩
                     Você receberá um e-mail de confirmação em instantes — verifique sua caixa de entrada.
                   </p>
                   <button
-                    className="px-4 py-2 bg-[#F2B21C] text-black rounded"
+                    className="px-4 py-2 bg-[#FFDE59] text-black rounded"
                     onClick={() => setEnvioFinalizado(false)}
                   >
                     Fechar
@@ -338,14 +341,14 @@ const Wishes = ({ convidados = [] }) => {
             )}
           </>
         ) : (
-          <div className="bg-[#0f3e57] text-[#F2B21C] font-['TexGyreTermes'] text-center p-6 rounded-xl shadow-lg">
+          <div className="bg-[#0f3e57] text-[#FFDE59] font-['TexGyreTermes'] text-center p-6 rounded-xl shadow-lg">
             <h2 className="text-2xl font-semibold mb-2">Confirmação de Presença</h2>
             <p className="text-sm mb-4">
               O prazo para confirmar ou editar a presença se encerrou em <strong>{fimConfirmacao.toLocaleDateString('pt-BR')}</strong>. As informações estão bloqueadas para alterações.
             </p>
             {convidadosMock.map((convidado, index) => (
-              <div key={convidado.idConvidado} className="border border-[#F2B21C]/30 p-4 rounded-lg space-y-2 bg-white/5 mb-4 text-left">
-                <p className="text-[#F2B21C] font-semibold font-['TexGyreTermes']">{convidado.nome}</p>
+              <div key={convidado.idConvidado} className="border border-[#FFDE59]/30 p-4 rounded-lg space-y-2 bg-white/5 mb-4 text-left">
+                <p className="text-[#FFDE59] font-semibold font-['TexGyreTermes']">{convidado.nome}</p>
                 <div className="flex items-center gap-2">
                   {convidado.status === 1 ? (
                     <>
@@ -365,13 +368,13 @@ const Wishes = ({ convidados = [] }) => {
                   )}
                 </div>
                 {convidado.crianca && convidado.idade && (
-                  <div className="text-sm text-[#F2B21C]">
+                  <div className="text-sm text-[#FFDE59]">
                     Idade informada: {convidado.idade} anos
                   </div>
                 )}
               </div>
             ))}
-            <p className="text-sm text-[#F2B21C] mt-4">
+            <p className="text-sm text-[#FFDE59] mt-4">
               Em caso de imprevisto, pedimos que entre em contato imediatamente com o João.
             </p>
           </div>

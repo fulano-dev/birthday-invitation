@@ -13,8 +13,6 @@ import { cn } from "@/lib/utils";
 
 const menuItems = [
   { icon: Home, label: 'Início', href: '#home' },
-  { icon: CalendarHeart, label: 'Evento', href: '#event' },
-  { icon: MapPin, label: 'Local', href: '#location' },
   { icon: MessageCircleHeart, label: 'Confirmar!', href: '#confirmar' },
   { icon: BadgeHelp, label: 'Ajuda', href: 'https://wa.me/5551996121240' }
 ];

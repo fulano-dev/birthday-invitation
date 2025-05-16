@@ -31,14 +31,14 @@ const CountdownTimer = ({ targetDate, message }) => {
 
   const renderTime = (value, label) => (
     <div className="flex flex-col items-center px-2">
-      <div className="text-lg font-bold text-[#F2B21C]">{value.toString().padStart(2, '0')}</div>
-      <div className="text-xs text-[#F2B21C] uppercase">{label}</div>
+      <div className="text-lg font-bold text-[#FFDE59]">{value.toString().padStart(2, '0')}</div>
+      <div className="text-xs text-[#FFDE59] uppercase">{label}</div>
     </div>
   );
 
   return (
     <div className="text-center">
-      {message && <p className="text-sm text-[#F2B21C] mb-2">{message}</p>}
+      {message && <p className="text-sm text-[#FFDE59] mb-2">{message}</p>}
       <div className="flex justify-center items-center space-x-4">
         {renderTime(timeLeft.dias || 0, 'Dias')}
         {renderTime(timeLeft.horas || 0, 'Horas')}

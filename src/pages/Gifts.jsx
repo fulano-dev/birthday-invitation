@@ -38,7 +38,7 @@ export default function Gifts() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: 0.2 }}
-                        className="inline-block text-[#F2B21C] font-['TexGyreTermes']"
+                        className="inline-block text-[#FFDE59] font-['TexGyreTermes']"
                     >
                         Contamos com você
                     </motion.span>
@@ -47,7 +47,7 @@ export default function Gifts() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: 0.3 }}
-                        className="text-4xl md:text-5xl font-['Alex_Brush'] text-[#F2B21C]"
+                        className="text-4xl md:text-5xl font-['Alex_Brush'] text-[#FFDE59]"
                     >
                         Confirmar Presença
                     </motion.h2>
@@ -59,9 +59,9 @@ export default function Gifts() {
                         transition={{ delay: 0.4 }}
                         className="flex items-center justify-center gap-4 pt-4"
                     >
-                        <div className="h-[1px] w-12 bg-[#F2B21C]/50" />
-                        <Gift className="w-5 h-5 text-[#F2B21C]" />
-                        <div className="h-[1px] w-12 bg-[#F2B21C]/50" />
+                        <div className="h-[1px] w-12 bg-[#FFDE59]/50" />
+                        <Gift className="w-5 h-5 text-[#FFDE59]" />
+                        <div className="h-[1px] w-12 bg-[#FFDE59]/50" />
                     </motion.div>
 
                     {/* Mensagem principal */}
@@ -72,7 +72,7 @@ export default function Gifts() {
                         className="space-y-4 max-w-md mx-auto"
                     >
 
-                        <p className="text-[#F2B21C] font-['TexGyreTermes'] leading-relaxed">
+                        <p className="text-[#FFDE59] font-['TexGyreTermes'] leading-relaxed">
                         Nossa celebração será intimista, com as pessoas que mais amamos e você é uma delas!!
 </p>
                     </motion.div>
@@ -83,9 +83,9 @@ export default function Gifts() {
                         transition={{ delay: 0.6 }}
                         className="flex items-center justify-center gap-3 pt-4"
                     >
-                        <div className="h-px w-8 bg-[#F2B21C]/50" />
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#F2B21C]" />
-                        <div className="h-px w-8 bg-[#F2B21C]/50" />
+                        <div className="h-px w-8 bg-[#FFDE59]/50" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#FFDE59]" />
+                        <div className="h-px w-8 bg-[#FFDE59]/50" />
                     </motion.div>
                 </motion.div>
 

@@ -1,6 +1,6 @@
 import logoPuc from '@/photos/logo-puc.png';
-import backgroundImg from '@/photos/foto-background.jpeg';
 import infoIcon from '@/photos/info.png';
+import star from '@/photos/star.png';
 import config from '@/config/config';
 import { useState, useEffect } from 'react';
 import { formatEventDate } from '@/lib/formatEventDate';
@@ -148,8 +148,8 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
     <>
       {isLoading && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="text-center text-[#F2B21C] font-['TexGyreTermes']">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#F2B21C] border-opacity-50 mx-auto mb-4"></div>
+          <div className="text-center text-[#FFDE59] font-['TexGyreTermes']">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#FFDE59] border-opacity-50 mx-auto mb-4"></div>
             <p className="text-lg">Buscando convite...</p>
           </div>
         </div>
@@ -158,16 +158,30 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="min-h-screen relative overflow-hidden flex flex-col justify-between h-screen"
+        className="min-h-screen relative overflow-hidden flex flex-col justify-between h-screen bg-black"
       >
+        {[...Array(25)].map((_, i) => (
+          <img
+            key={i}
+            src={star}
+            alt="estrela"
+            className="absolute"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              width: '20px',
+              height: '20px',
+              pointerEvents: 'none',
+              opacity: 0.7,
+            }}
+          />
+        ))}
         {import.meta.env.VITE_AMBIENTE === 'HML' && (
           <div className="bg-red-600 text-black text-center py-2 font-semibold uppercase tracking-wide z-50 relative">
             AMBIENTE DE HOMOLOGAÇÃO
           </div>
         )}
-        {/* Decorative Background */}
-        <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-[#0047AB]/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-yellow-400/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
+
 
         {/* Main Content */}
         <div className="relative z-10 h-screen flex flex-col items-center justify-between px-4">
@@ -179,7 +193,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
           >
             {/* Card Container */}
             <div
-              className="relative overflow-hidden w-full h-full p-0 sm:p-8 md:p-10 sm:rounded-2xl sm:border border-yellow-100/50 shadow-xl text-[#F2B21C]"
+              className="relative overflow-hidden w-full h-full p-0 sm:p-8 md:p-10 sm:rounded-2xl sm:border border-yellow-100/50 shadow-xl text-[#FFDE59]"
               style={{
                 marginTop: '2vh',
                 height: '90vh',
@@ -189,9 +203,9 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
               <div className="relative z-10 h-full">
                 {/* Top Decorative Line */}
                 <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
-                  <div className="h-px w-12 sm:w-16 bg-[#F2B21C]/50" />
-                  <div className="w-2 h-2 rounded-full bg-[#F2B21C]" />
-                  <div className="h-px w-12 sm:w-16 bg-[#F2B21C]/50" />
+                  <div className="h-px w-12 sm:w-16 bg-[#FFDE59]/50" />
+                  <div className="w-2 h-2 rounded-full bg-[#FFDE59]" />
+                  <div className="h-px w-12 sm:w-16 bg-[#FFDE59]/50" />
                 </div>
 
                 {/* Foto e Campo de Código */}
@@ -205,27 +219,24 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                     <div className="flex justify-center">
                       <img src={logoPuc} alt="Logo PUC" className="h-24 sm:h-28 md:h-32 object-contain" />
                     </div>
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-['Alex_Brush'] text-[#F2B21C]">
-                      João Pedro Vargas da Silva
+                    <h1
+                      className="text-[88px] leading-none text-[#FFDE59]"
+                      style={{ fontFamily: 'BarbraHigh' }}
+                    >
+                      24 anos
                     </h1>
-                    <p className="text-sm sm:text-base font-['TexGyreTermes'] text-[#F2B21C]">
-                      E SUA FAMÍLIA SENTEM-SE HONRADOS EM CONVIDÁ-LOS PARA A SUA FORMATURA EM
+                    <p className="text-sm sm:text-base font-['Arial'] text-[#FFDE59]">
+                     do
                     </p>
-                    <h1 className="text-2xl sm:text-4xl md:text-5xl font-['Alex_Brush'] text-[#F2B21C]">
-                      Análise e Desenvolvimento de Sistemas
+                    <h1 className="text-2xl text-[48px]  md:text-5xl font-['BrittanySignature'] text-[#FFDE59]">
+                      João Pedro
                     </h1>
                   </div>
 
                   <div className="w-full flex flex-col items-center gap-3 mb-4 sm:mb-6">
-                    <p className="text-sm sm:text-base font-['TexGyreTermes'] text-[#F2B21C]">
-                      Digite o código de 4 dígitos que está no cartão com o QRCode.
+                    <p className="text-sm sm:text-base font-['TexGyreTermes'] text-[#FFDE59]">
+                      Digite o código do convite de 4 dígitos.
                       <span className="relative group inline-block ml-2 cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline text-[#F2B21C]" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M18 10A8 8 0 11 2 10a8 8 0 0116 0zm-8 3a1 1 0 01-1-1v-1a1 1 0 112 0v1a1 1 0 01-1 1zm-1-6a1 1 0 012 0v1a1 1 0 11-2 0V7z" clipRule="evenodd" />
-                        </svg>
-                        <div className="absolute hidden group-hover:block group-focus:block z-10 top-full right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg p-2 w-60">
-                          <img src={infoIcon} alt="Ajuda sobre código QR" className="w-full h-auto rounded-md" />
-                        </div>
                       </span>
                     </p>
                     <input
@@ -242,13 +253,13 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                     />
                     <button
                       onClick={handleEnter}
-                      className="bg-[#F2B21C] text-black px-6 py-2 rounded-md hover:bg-[#bfa67e] transition font-['TexGyreTermes']"
+                      className="bg-[#FFDE59] text-black px-6 py-2 rounded-md hover:bg-[#bfa67e] transition font-['TexGyreTermes']"
                     >
                       Entrar no convite
                     </button>
                     <button
                       onClick={() => setShowPhoneModal(true)}
-                      className="text-sm font-['TexGyreTermes'] text-[#F2B21C] underline hover:text-[#bfa67e]"
+                      className="text-sm font-['TexGyreTermes'] text-[#FFDE59] underline hover:text-[#bfa67e]"
                     >
                       Buscar código do convite pelo telefone
                     </button>
@@ -256,7 +267,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                       href="https://wa.me/5551996121240"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-['TexGyreTermes'] text-[#F2B21C] underline hover:text-[#bfa67e] mt-2"
+                      className="text-sm font-['TexGyreTermes'] text-[#FFDE59] underline hover:text-[#bfa67e] mt-2"
                     >
                       Dúvidas? Clique aqui para entrar em contato.
                     </a>
@@ -270,12 +281,12 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="bg-[#0d2931] text-[#F2B21C] p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
+          <div className="bg-[#0d2931] text-[#FFDE59] p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
             <h2 className="text-xl font-bold mb-2 font-['TexGyreTermes']">Código não encontrado</h2>
             <p className="text-sm font-['TexGyreTermes']">{modalMessage}</p>
             <button
               onClick={() => setShowModal(false)}
-              className="mt-4 px-4 py-2 bg-[#F2B21C] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes']"
+              className="mt-4 px-4 py-2 bg-[#FFDE59] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes']"
             >
               Fechar
             </button>
@@ -285,7 +296,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
 
       {showPhoneModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="bg-gradient-to-b from-[#0d2931] to-[#091d24] border border-[#F2B21C]/30 text-[#F2B21C] p-6 rounded-2xl shadow-2xl max-w-md w-full mx-4">
+          <div className="bg-gradient-to-b from-[#0d2931] to-[#091d24] border border-[#FFDE59]/30 text-[#FFDE59] p-6 rounded-2xl shadow-2xl max-w-md w-full mx-4">
             <h2 className="text-xl font-bold mb-2 font-['TexGyreTermes']">Buscar código por telefone</h2>
             <InputMask
               mask="(99) 99999-9999"
@@ -298,7 +309,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                   {...inputProps}
                   type="tel"
                   placeholder="Digite seu telefone com DDD"
-                  className="w-full mb-4 px-4 py-2 border border-[#F2B21C]/40 bg-black/20 text-[#F2B21C] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#F2B21C] text-base font-['TexGyreTermes']"
+                  className="w-full mb-4 px-4 py-2 border border-[#FFDE59]/40 bg-black/20 text-[#FFDE59] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FFDE59] text-base font-['TexGyreTermes']"
                 />
               )}
             </InputMask>
@@ -323,7 +334,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                     setPhoneError("Erro ao buscar o código. Tente novamente.");
                   }
                 }}
-                className="bg-[#F2B21C] text-black px-6 py-2 rounded-md hover:bg-[#bfa67e] transition font-['TexGyreTermes']"
+                className="bg-[#FFDE59] text-black px-6 py-2 rounded-md hover:bg-[#bfa67e] transition font-['TexGyreTermes']"
               >
                 Buscar código
               </button>
@@ -334,7 +345,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                   setFoundCode(null);
                   setPhoneError('');
                 }}
-                className="px-6 py-2 bg-[#F2B21C] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes']"
+                className="px-6 py-2 bg-[#FFDE59] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes']"
               >
                 Fechar
               </button>
@@ -351,7 +362,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
 
       {showEntregueModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="bg-[#0d2931] text-[#F2B21C] p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
+          <div className="bg-[#0d2931] text-[#FFDE59] p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
             <h2 className="text-xl font-bold mb-2 font-['TexGyreTermes']">Calma, {modalMessage}!</h2>
             <p className="text-sm font-['TexGyreTermes']">
               Localizamos seu convite, mas parece que seu convite físico ainda não foi entregue. Assim que receber, você poderá acessar normalmente o convite virtual.
@@ -361,7 +372,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
             <div className="mt-4 flex gap-4">
               <button
                 onClick={() => setShowEntregueModal(false)}
-                className="px-4 py-2 bg-[#F2B21C] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes']"
+                className="px-4 py-2 bg-[#FFDE59] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes']"
               >
                 Fechar
               </button>
@@ -369,7 +380,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                 href="https://wa.me/5551996121240?text=Oi%20Jo%C3%A3o%2C%20fui%20acessar%20o%20convite%20virtual%20e%20aparece%20que%20ainda%20n%C3%A3o%20foi%20entregue."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-[#F2B21C] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes'] text-center"
+                className="px-4 py-2 bg-[#FFDE59] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes'] text-center"
               >
                 Já recebi meu convite
               </a>
@@ -380,7 +391,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
 
       {showImportModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="bg-gradient-to-b from-[#0d2931] to-[#091d24] border border-[#F2B21C]/30 text-[#F2B21C] p-6 rounded-2xl shadow-2xl max-w-md w-full mx-4">
+          <div className="bg-gradient-to-b from-[#0d2931] to-[#091d24] border border-[#FFDE59]/30 text-[#FFDE59] p-6 rounded-2xl shadow-2xl max-w-md w-full mx-4">
             <h2 className="text-xl font-bold mb-4 font-['TexGyreTermes']">Importar convidados</h2>
             <form
               onSubmit={async (e) => {
@@ -412,16 +423,16 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                 name="file"
                 accept=".xlsx"
                 required
-                className="w-full mb-4 px-4 py-2 border border-[#F2B21C]/40 bg-black/20 text-[#F2B21C] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#F2B21C] text-base font-['TexGyreTermes']"
+                className="w-full mb-4 px-4 py-2 border border-[#FFDE59]/40 bg-black/20 text-[#FFDE59] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FFDE59] text-base font-['TexGyreTermes']"
               />
               <div className="flex gap-4">
-                <button type="submit" className="bg-[#F2B21C] text-black px-6 py-2 rounded-md hover:bg-[#bfa67e] transition font-['TexGyreTermes']">
+                <button type="submit" className="bg-[#FFDE59] text-black px-6 py-2 rounded-md hover:bg-[#bfa67e] transition font-['TexGyreTermes']">
                   Importar
                 </button>
                 <button
                   type="button"
                   onClick={() => setShowImportModal(false)}
-                  className="px-6 py-2 bg-[#F2B21C] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes']"
+                  className="px-6 py-2 bg-[#FFDE59] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes']"
                 >
                   Cancelar
                 </button>
@@ -433,7 +444,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
 
       {showListModal && (
         <div className="fixed inset-0 flex items-start justify-center bg-black bg-opacity-70 z-50 overflow-y-auto pt-10">
-          <div className="bg-gradient-to-b from-[#0d2931] to-[#091d24] border border-[#F2B21C]/30 text-[#F2B21C] p-6 rounded-2xl shadow-2xl max-w-3xl w-full mx-4">
+          <div className="bg-gradient-to-b from-[#0d2931] to-[#091d24] border border-[#FFDE59]/30 text-[#FFDE59] p-6 rounded-2xl shadow-2xl max-w-3xl w-full mx-4">
             <div className="flex justify-between items-center mb-4">
               <div>
                 <p className="font-['TexGyreTermes'] text-sm">
@@ -486,7 +497,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
               </div>
               <button
                 onClick={() => setShowListModal(false)}
-                className="text-[#F2B21C] hover:text-[#bfa67e] font-bold text-lg"
+                className="text-[#FFDE59] hover:text-[#bfa67e] font-bold text-lg"
               >
                 ✕
               </button>
@@ -497,7 +508,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
               placeholder="Buscar por nome..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full mb-2 px-4 py-2 border border-[#F2B21C]/40 bg-black/20 text-[#F2B21C] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#F2B21C] text-base font-['TexGyreTermes']"
+              className="w-full mb-2 px-4 py-2 border border-[#FFDE59]/40 bg-black/20 text-[#FFDE59] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FFDE59] text-base font-['TexGyreTermes']"
             />
             <div className="flex flex-wrap gap-4 mb-6">
               {[
@@ -546,7 +557,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
               })
               .filter((familia) => familia.convidados.length > 0)
               .map((familia, index) => (
-                <div key={index} className="mb-6 border-t border-[#F2B21C]/20 pt-4">
+                <div key={index} className="mb-6 border-t border-[#FFDE59]/20 pt-4">
                   <div className="flex justify-between items-center">
                     <h3 className="text-lg font-semibold">
                       Família {familia.codigoConvite}{' '}
@@ -557,7 +568,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                         setNewGuest(prev => ({ ...prev, codigoConvite: familia.codigoConvite }));
                         setShowAddModal(true);
                       }}
-                      className="bg-[#F2B21C] text-black px-3 py-1 rounded-full hover:bg-[#bfa67e] text-sm"
+                      className="bg-[#FFDE59] text-black px-3 py-1 rounded-full hover:bg-[#bfa67e] text-sm"
                     >
                       +
                     </button>
@@ -609,7 +620,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                                 )
                               )
                             }
-                            className="ml-2 px-2 py-1 bg-[#F2B21C] text-black rounded-full"
+                            className="ml-2 px-2 py-1 bg-[#FFDE59] text-black rounded-full"
                           >
                             ⋮
                           </button>
@@ -673,21 +684,21 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                   ))}
                   {/* Bloco de visita */}
                   {familia.visita?.totalVisitas > 0 ? (
-                    <p className="text-sm text-[#F2B21C] mt-1">
+                    <p className="text-sm text-[#FFDE59] mt-1">
                       😀 Último Acesso: {new Date(familia.visita.ultimaVisita).toLocaleString('pt-BR')} — {familia.visita.totalVisitas} acesso(s)
                     </p>
                   ) : (
-                    <p className="text-sm text-[#F2B21C] mt-1">
+                    <p className="text-sm text-[#FFDE59] mt-1">
                       😢 Ainda não acessou.
                     </p>
                   )}
                   {/* Bloco de confirmação */}
                   {familia.confirmacao?.totalConfirmacoes > 0 ? (
-                    <p className="text-sm text-[#F2B21C] mt-1">
+                    <p className="text-sm text-[#FFDE59] mt-1">
                       ✅ Última confirmação: {new Date(familia.confirmacao.ultimaConfirmacao).toLocaleString('pt-BR')} — por <strong>{familia.confirmacao.emailConfirmacao}</strong> — {familia.confirmacao.totalConfirmacoes} edição(ões)
                     </p>
                   ) : (
-                    <p className="text-sm text-[#F2B21C] mt-1">
+                    <p className="text-sm text-[#FFDE59] mt-1">
                       ⚠️ Ainda não confirmou presença.
                     </p>
                   )}
@@ -709,7 +720,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                         setFamilias(familiasConvertidas);
                       }
                     }}
-                    className="mt-2 bg-[#F2B21C] text-black px-3 py-1 rounded-full hover:bg-[#bfa67e] text-sm"
+                    className="mt-2 bg-[#FFDE59] text-black px-3 py-1 rounded-full hover:bg-[#bfa67e] text-sm"
                   >
                     {familia.entregue ? 'Desfazer Entrega' : 'Entregar Convite'}
                   </button>
@@ -717,7 +728,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
               ))}
             <button
               onClick={() => setShowAddModal(true)}
-              className="mb-4 px-6 py-2 bg-[#F2B21C] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes'] w-full"
+              className="mb-4 px-6 py-2 bg-[#FFDE59] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes'] w-full"
             >
               Adicionar Convidado
             </button>
@@ -725,13 +736,13 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
               href={`${API_URL}/api/exportarListaPDF`}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center mt-2 mb-2 bg-[#F2B21C] text-black px-6 py-3 rounded-lg text-base font-semibold hover:bg-[#bfa67e] transition font-['TexGyreTermes']"
+              className="block w-full text-center mt-2 mb-2 bg-[#FFDE59] text-black px-6 py-3 rounded-lg text-base font-semibold hover:bg-[#bfa67e] transition font-['TexGyreTermes']"
             >
               📄 Exportar Lista em PDF
             </a>
             <button
               onClick={() => setShowListModal(false)}
-              className="mt-4 px-6 py-2 bg-[#F2B21C] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes'] w-full"
+              className="mt-4 px-6 py-2 bg-[#FFDE59] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes'] w-full"
             >
               Fechar
             </button>
@@ -741,28 +752,28 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
 
       {showAddModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="bg-gradient-to-b from-[#0d2931] to-[#091d24] border border-[#F2B21C]/30 text-[#F2B21C] p-6 rounded-2xl shadow-2xl max-w-md w-full mx-4">
+          <div className="bg-gradient-to-b from-[#0d2931] to-[#091d24] border border-[#FFDE59]/30 text-[#FFDE59] p-6 rounded-2xl shadow-2xl max-w-md w-full mx-4">
             <h2 className="text-xl font-bold mb-4 font-['TexGyreTermes']">Adicionar Convidado</h2>
             <input
               type="text"
               placeholder="Nome"
               value={newGuest.nome}
               onChange={(e) => setNewGuest({ ...newGuest, nome: e.target.value })}
-              className="w-full mb-2 px-4 py-2 border border-[#F2B21C]/40 bg-black/20 text-[#F2B21C] rounded-md"
+              className="w-full mb-2 px-4 py-2 border border-[#FFDE59]/40 bg-black/20 text-[#FFDE59] rounded-md"
             />
             <input
               type="text"
               placeholder="Telefone"
               value={newGuest.telefone}
               onChange={(e) => setNewGuest({ ...newGuest, telefone: e.target.value })}
-              className="w-full mb-2 px-4 py-2 border border-[#F2B21C]/40 bg-black/20 text-[#F2B21C] rounded-md"
+              className="w-full mb-2 px-4 py-2 border border-[#FFDE59]/40 bg-black/20 text-[#FFDE59] rounded-md"
             />
             <input
               type="text"
               placeholder="Código do Convite"
               value={newGuest.codigoConvite}
               onChange={(e) => setNewGuest({ ...newGuest, codigoConvite: e.target.value })}
-              className="w-full mb-2 px-4 py-2 border border-[#F2B21C]/40 bg-black/20 text-[#F2B21C] rounded-md"
+              className="w-full mb-2 px-4 py-2 border border-[#FFDE59]/40 bg-black/20 text-[#FFDE59] rounded-md"
             />
             <label className="flex items-center mb-4">
               <input
@@ -779,7 +790,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                 placeholder="Idade"
                 value={newGuest.idade || ''}
                 onChange={(e) => setNewGuest({ ...newGuest, idade: e.target.value })}
-                className="w-full mb-4 px-4 py-2 border border-[#F2B21C]/40 bg-black/20 text-[#F2B21C] rounded-md"
+                className="w-full mb-4 px-4 py-2 border border-[#FFDE59]/40 bg-black/20 text-[#FFDE59] rounded-md"
               />
             )}
             <div className="flex gap-4">
@@ -816,7 +827,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                     alert('Erro na requisição.');
                   }
                 }}
-                className="bg-[#F2B21C] text-black px-6 py-2 rounded-md hover:bg-[#bfa67e]"
+                className="bg-[#FFDE59] text-black px-6 py-2 rounded-md hover:bg-[#bfa67e]"
               >
                 Salvar
               </button>
@@ -825,7 +836,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                   setShowAddModal(false);
                   setNewGuest({ nome: '', telefone: '', codigoConvite: '', crianca: false });
                 }}
-                className="px-6 py-2 bg-[#F2B21C] text-black rounded-md hover:bg-[#bfa67e]"
+                className="px-6 py-2 bg-[#FFDE59] text-black rounded-md hover:bg-[#bfa67e]"
               >
                 Cancelar
               </button>
@@ -836,7 +847,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
       {/* Modal de confirmação SMS */}
       {confirmarSMS.mostrar && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="bg-[#0d2931] text-[#F2B21C] p-6 rounded-lg shadow-lg max-w-sm w-full mx-4 text-center">
+          <div className="bg-[#0d2931] text-[#FFDE59] p-6 rounded-lg shadow-lg max-w-sm w-full mx-4 text-center">
             <h2 className="text-xl font-bold mb-4 font-['TexGyreTermes']">Enviar alerta SMS?</h2>
             <p className="text-sm mb-6 font-['TexGyreTermes']">
               Deseja enviar uma confirmação por SMS ao convidado?
