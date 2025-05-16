@@ -365,9 +365,9 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
           <div className="bg-[#0d2931] text-[#FFDE59] p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
             <h2 className="text-xl font-bold mb-2 font-['TexGyreTermes']">Calma, {modalMessage}!</h2>
             <p className="text-sm font-['TexGyreTermes']">
-              Localizamos seu convite, mas parece que seu convite físico ainda não foi entregue. Assim que receber, você poderá acessar normalmente o convite virtual.
+              Localizamos seu convite, mas parece que ele ainda não foi desbloqueado.
               <br /><br />
-              Se você já recebeu o convite físico, clique abaixo para nos avisar.
+              Cique abaixo para entrar em contato com o João.
             </p>
             <div className="mt-4 flex gap-4">
               <button
@@ -377,12 +377,12 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                 Fechar
               </button>
               <a
-                href="https://wa.me/5551996121240?text=Oi%20Jo%C3%A3o%2C%20fui%20acessar%20o%20convite%20virtual%20e%20aparece%20que%20ainda%20n%C3%A3o%20foi%20entregue."
+                href="https://wa.me/5551996121240"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 bg-[#FFDE59] text-black rounded-md hover:bg-[#bfa67e] font-['TexGyreTermes'] text-center"
               >
-                Já recebi meu convite
+                Entrar em contato
               </a>
             </div>
           </div>
