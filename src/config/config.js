@@ -1,6 +1,6 @@
 const config = {
   data: {
-    title: "Formatura de João Pedro",
+    title: "24 anos - João Pedro",
     description:
       "Vamos nos casar e convidamos você para celebrar esse momento especial conosco.",
     groomName: "Caroline",
