@@ -685,7 +685,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                   {/* Bloco de visita */}
                   {familia.visita?.totalVisitas > 0 ? (
                     <p className="text-sm text-[#FFDE59] mt-1">
-                      😀 Último Acesso: {new Date(familia.visita.ultimaVisita).toLocaleString('pt-BR')} — {familia.visita.totalVisitas} acesso(s)
+                      😀 Último Acesso: {new Date(familia.visita.ultimaVisita).toLocaleString('pt-BR', { timeZone: 'UTC' })} — {familia.visita.totalVisitas} acesso(s)
                     </p>
                   ) : (
                     <p className="text-sm text-[#FFDE59] mt-1">
@@ -695,7 +695,7 @@ const LandingPage = ({ onOpenInvitation, setConvidados }) => {
                   {/* Bloco de confirmação */}
                   {familia.confirmacao?.totalConfirmacoes > 0 ? (
                     <p className="text-sm text-[#FFDE59] mt-1">
-                      ✅ Última confirmação: {new Date(familia.confirmacao.ultimaConfirmacao).toLocaleString('pt-BR')} — por <strong>{familia.confirmacao.emailConfirmacao}</strong> — {familia.confirmacao.totalConfirmacoes} edição(ões)
+                      ✅ Última confirmação: {new Date(familia.confirmacao.ultimaConfirmacao).toLocaleString('pt-BR', { timeZone: 'UTC' })} — por <strong>{familia.confirmacao.emailConfirmacao}</strong> — {familia.confirmacao.totalConfirmacoes} edição(ões)
                     </p>
                   ) : (
                     <p className="text-sm text-[#FFDE59] mt-1">

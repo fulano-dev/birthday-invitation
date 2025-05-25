@@ -20,22 +20,43 @@ export default function MainContent({ convidados }) {
 
     return (
       <div className="relative">
-        {[...Array(25)].map((_, i) => (
-          <img
-            key={i}
-            src={star}
-            alt="estrela"
-            className="absolute"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: '20px',
-              height: '20px',
-              pointerEvents: 'none',
-              opacity: 0.7,
-            }}
-          />
-        ))}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {[...Array(24)].map((_, i) => {
+            const top = `${Math.random() * 100}%`;
+            const left = `${Math.random() * 100}%`;
+            return (
+              <div
+                key={i}
+                className="absolute flex items-center justify-center"
+                style={{
+                  top,
+                  left,
+                  width: '20px',
+                  height: '20px',
+                }}
+              >
+                <img
+                  src={star}
+                  alt="estrela"
+                  style={{
+                    position: 'absolute',
+                    width: '20px',
+                    height: '20px',
+                  }}
+                />
+                <span style={{
+                  position: 'relative',
+                  zIndex: 1,
+                  fontSize: '7px',
+                  color: '#000',
+                  fontWeight: 'bold',
+                }}>
+                  {i + 1}
+                </span>
+              </div>
+            );
+          })}
+        </div>
 
         {mostrarModalConvite && convidados && convidados.length > 0 && (
           <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
