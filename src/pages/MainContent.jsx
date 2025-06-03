@@ -15,7 +15,7 @@ export default function MainContent({ convidados }) {
 
     const hoje = new Date();
     const inicioConfirmacao = new Date("2025-05-15T00:00:00");
-    const fimConfirmacao = new Date("2025-05-29T23:59:59");
+    const fimConfirmacao = new Date("2025-06-05T23:59:59");
     const dentroDoPrazo = hoje >= inicioConfirmacao && hoje <= fimConfirmacao;
 
     return (

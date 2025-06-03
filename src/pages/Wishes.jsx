@@ -17,7 +17,7 @@ const Wishes = ({ convidados = [] }) => {
 
   const hoje = new Date();
   const inicioConfirmacao = new Date("2025-05-16T00:00:00");
-  const fimConfirmacao = new Date("2025-05-29T23:59:59");
+  const fimConfirmacao = new Date("2025-06-05T23:59:59");
   const dentroDoPrazo = hoje >= inicioConfirmacao && hoje <= fimConfirmacao;
   
   const CountdownTimer = ({ targetDate }) => {
@@ -118,7 +118,7 @@ const Wishes = ({ convidados = [] }) => {
           <>
             <h2 className="text-3xl font-['BarbraHigh'] text-center text-[#FFDE59]">Confirmar Presença</h2>
             <p className="text-sm text-center text-[#FFDE59] font-['TexGyreTermes']">
-              Por favor, confirme sua presença até 29/05/2025
+              Por favor, confirme sua presença até 05/06/2025
             </p>
             <p className="text-sm text-center text-[#FFDE59] font-['TexGyreTermes']">
               Marque a presença de todos que irão comparecer e desmarque os que não poderão ir.

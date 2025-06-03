@@ -135,7 +135,7 @@ app.post('/api/confirmarPresenca', async (req, res) => {
         const primeiroNome = sanitizedNome.length <= 10 ? sanitizedNome : '';
         try {
           await client.messages.create({
-            body: `Oi${primeiroNome ? ' ' + primeiroNome : ''}, presenca confirmada! Te espero dia 31/05 as 20h no UpBeer em Canoas.`,
+            body: `Oi${primeiroNome ? ' ' + primeiroNome : ''}, presenca confirmada! Te espero dia 07/06 as 20h no UpBeer em Canoas.`,
             from: '+16814323414',
             to: phone
           });
@@ -245,7 +245,7 @@ console.log(convidados)
             <h2 style="color:#FFDE59;">Poxa, que pena! 😢</h2>
             <p>Recebi a confirmação de que infelizmente ninguém da sua família poderá comparecer à comemoração do meu aniversário de 24 anos.</p>
             <p>Sentirei muito a falta de vocês nesse dia tão especial para mim.</p>
-            <p>Mas tudo bem, caso mude de ideia até <strong>29/05/2025</strong>, você ainda pode acessar o convite e atualizar a resposta.</p>
+            <p>Mas tudo bem, caso mude de ideia até <strong>05/06/2025</strong>, você ainda pode acessar o convite e atualizar a resposta.</p>
             <div style="margin-top:30px;">
               <a href="https://joaovargas.dev.br/aniversario" target="_blank" style="text-decoration:none;">
                 <button style="background-color:#FFDE59;color:#000;font-weight:bold;border:none;padding:10px 20px;border-radius:6px;font-family:'TexGyreTermes',sans-serif;margin-right:10px;">
@@ -265,21 +265,21 @@ console.log(convidados)
       mailOptionsConvidado = {
         from: `"João Pedro Vargas da Silva" <${process.env.EMAIL_USER}>`,
         to: emailConfirmacao,
-        subject: "🎉 Confirmação recebida! Te espero em 31/05! 🎂🍻",
+        subject: "🎉 Confirmação recebida! Te espero em 07/06! 🎂🍻",
         html: `
           <div style="background-color:#000000;padding:20px;border-radius:10px;color:#FFDE59;font-family:'TexGyreTermes',sans-serif;text-align:center;">
             <img src="https://i.imgur.com/Y3evLN4.png" style="max-width:250px;width:100%;border-radius:8px;border:2px solid #FFDE59;margin-bottom:15px;display:block;margin-left:auto;margin-right:auto;" />
             <h2 style="color:#FFDE59;">Presença Confirmada! 🎉</h2>
             <p>Que felicidade saber que você vem comemorar comigo meus 24 anos! 💙</p>
             <p>Vai ser incrível te ver no meu aniversário, rodeado das pessoas que mais gosto! 🥳</p>
-            <p><strong>📅 Data:</strong> 31/05/2025</p>
+            <p><strong>📅 Data:</strong> 07/06/2025</p>
             <p><strong>⏰ Horário:</strong> 20h</p>
             <p><strong>📍 Local:</strong> UpBeer Canoas, Av. Dr. Sezefredo Azambuja Vieira, 1910 - Bairro Marechal Rondon, Canoas/RS</p>
             <p style="margin-top:5px;"><strong>ℹ️ Observação:</strong> o UpBeer cobra R$ 5,00 de couvert artístico por pessoa.</p>
             <p style="margin-top:20px;">Convidado(s) confirmado(s):</p>
             <ul style="text-align:left;display:inline-block;margin:auto;">${nomesConfirmados}</ul>
             ${mensagemExtra}
-            <p style="margin-top:30px;">Se precisar editar alguma informação ou mudar de ideia, é só acessar novamente seu convite até <strong>29/05/2025</strong>! 😊</p>
+            <p style="margin-top:30px;">Se precisar editar alguma informação ou mudar de ideia, é só acessar novamente seu convite até <strong>05/06/2025</strong>! 😊</p>
             <div style="margin-top:30px;">
               <a href="https://joaovargas.dev.br/aniversario" target="_blank" style="text-decoration:none;">
                 <button style="background-color:#FFDE59;color:#000;font-weight:bold;border:none;padding:10px 20px;border-radius:6px;font-family:'TexGyreTermes',sans-serif;margin-right:10px;">
@@ -504,7 +504,7 @@ app.post('/api/confirmarConvidado', async (req, res) => {
       const primeiroNome = sanitizedNome.length <= 15 ? sanitizedNome : '';
       try {
         await client.messages.create({
-          body: `Oi${primeiroNome ? ' ' + primeiroNome : ''}, presenca confirmada! Te espero dia 31/05 no UpBeer Canoas.`,
+          body: `Oi${primeiroNome ? ' ' + primeiroNome : ''}, presenca confirmada! Te espero dia 07/06 no UpBeer Canoas.`,
           from: '+16814323414',
           to: phone
         });
@@ -742,7 +742,7 @@ app.post('/api/marcarEntregue', async (req, res) => {
         const primeiroNome = sanitizedNome.length <= 15 ? sanitizedNome : '';
         try {
           await client.messages.create({
-            body: `Oi${primeiroNome ? ' ' + primeiroNome : ''}, venha comemorar meus 24 anos comigo! Confirme ate 29/05 em: https://joaovargas.dev.br/aniversario/?=${codigoConvite}`,
+            body: `Oi${primeiroNome ? ' ' + primeiroNome : ''}, venha comemorar meus 24 anos comigo! Confirme ate 05/06 em: https://joaovargas.dev.br/aniversario/?=${codigoConvite}`,
             from: '+16814323414',
             to: phone
           });

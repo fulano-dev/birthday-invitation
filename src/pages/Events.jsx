@@ -52,7 +52,7 @@ export default function Events() {
                             transition={{ delay: 0.2 }}
                             className="inline-block text-[#FFDE59] font-['TexGyreTermes'] mb-2 text-[20px]"
                         >
-                            Confirme presença até 29/05/2025
+                            Confirme presença até 05/06/2025
                         </motion.span>
                     </motion.div>
 
